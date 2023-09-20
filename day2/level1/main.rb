@@ -26,16 +26,22 @@ class ElvishExpedition
         end
     end
     
-    grouped_integers << current_group unless current_group.empty?
+    grouped_integers << current_group unless current_group.empty? && current_group.is_a?(Array)
 
-    largest_group = grouped_integers.max_by { |group| group.sum }
-
-    [largest_group, largest_group.sum]
+    grouped_integers.map { |group| [group, group.sum] }
     end
+
+    def largest_group
+        grouped_data = calories
+        largest_group= grouped_data.max_by { |group, sum| sum}
+        largest_group[0]
+    end  
 end
 
-process = ElvishExpedition.new('info/input.txt')
-largest_calories, sum = process.calories
+expedition = ElvishExpedition.new('./info/input.txt')
 
-puts "Largest Group: #{largest_calories.inspect}"
-puts "Sum of Values in Largest Group: #{largest_calories.sum}"
+largest_group = expedition.largest_group
+
+# Print the largest group and its sum
+puts "Largest Group: #{largest_group.inspect}"
+puts "Sum of Values in Largest Group: #{largest_group.sum}"
