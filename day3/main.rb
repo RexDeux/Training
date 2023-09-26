@@ -5,23 +5,23 @@ class TentPlacerTournament
 
     def calculate_score(opponent_choice, your_choice)
         case opponent_choice
-        when 'A'
+        when 'A' #Rock
             case your_choice
-            when 'X' then 1
-            when 'Y' then 8
-            when 'Z' then 3
+            when 'X' then 4 #Rock
+            when 'Y' then 8 #Paper
+            when 'Z' then 3 #Scissors
             end
-        when 'B'
+        when 'B' #Paper
             case your_choice
-            when 'X' then 7
-            when 'Y' then 5
-            when 'Z' then 9
+            when 'X' then 1 #Rock
+            when 'Y' then 5 #Paper
+            when 'Z' then 9 #Scissors
             end
-        when 'C'
+        when 'C' #Scissors
             case your_choice
-            when 'X' then 7
-            when 'Y' then 2
-            when 'Z' then 3
+            when 'X' then 7 #Rock
+            when 'Y' then 2 #Paper
+            when 'Z' then 6 #Scissors
             end
         else
             0
